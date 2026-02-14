@@ -77,7 +77,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // Allow requests from deployed frontend
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*',
+  origin: [
+    'http://localhost:5173',
+    'https://civix-governance-platform.vercel.app',
+    'https://civix-governance-platform-don2.vercel.app'
+  ],
   methods: ['GET','POST','PUT','DELETE','PATCH'],
   credentials: true
 }));
